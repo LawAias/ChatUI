@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import com.example.sihuan.chatuidemo.R;
 import com.example.sihuan.chatuidemo.adapter.MsgAdapter;
+import com.example.sihuan.chatuidemo.adapter.MultiMsgTypeAdapter;
 import com.example.sihuan.chatuidemo.entity.Msg;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView msgPanel;
     private Button sendMsg;
     private EditText msgInput;
-    private MsgAdapter adapter;
+    private MultiMsgTypeAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Msg("hi", Msg.TYPE_RECEIVED));
         list.add(new Msg("hi", Msg.TYPE_SEND));
         msgPanel.setLayoutManager(new LinearLayoutManager(this));
-        msgPanel.setAdapter(adapter = new MsgAdapter(list));
+//        msgPanel.setAdapter(adapter = new MsgAdapter(list));
+        msgPanel.setAdapter(adapter = new MultiMsgTypeAdapter(list));
 
     }
 
